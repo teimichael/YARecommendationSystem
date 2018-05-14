@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>个性化推荐系统展示</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/font-awesome.min.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|PT+Serif:400,400italic' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/style-min.css' %}" id="theme-styles">
+    <link rel="stylesheet" href="{% static 'css/thumb/iconfont.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/thumb/thumb.css' %}">
+</head>
+
+<body>
+<header>
+    <div class="widewrapper masthead">
+        <div class="container">
+            <a href="/" id="logo">
+                <div>
+                    个性化推荐系统展示
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="widewrapper subheader">
+        <div class="container">
+            <div class="clean-breadcrumb">
+                <a href="/">文章</a>
+                <span class="separator">&#x2F;</span>
+                <a href="/article/{{ article.id }}">{{ article.title }}</a>
+            </div>
+
+            <div class="clean-searchbox">
+                <form action="#" method="get" accept-charset="utf-8">
+
+                    <input class="searchfield" id="searchbox" type="text" placeholder="搜索">
+                    <button class="searchbutton" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="widewrapper main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <article class="blog-post">
+                    <div class="body">
+                        <h1>{{ article.title }}</h1>
+                        <div class="meta">
+                            <i class="fa fa-user"></i> {{ article.author }} <i
+                                class="fa fa-calendar"></i>{{ article.date }}<i
+                                class="fa fa-comments"></i><span class="data"><a
+                                href="#comments">{{ article.comment_num }} 评论</a></span>
+                        </div>
+                        <p>{{ article.content }}</p>
+                    </div>
+                </article>
+
+                <div class="thumb">
+                    <hr>
+                    <div class="thumb-opera">
+                        <div data-id="{{ article.id }}" id="article-id"></div>
+                        <span id="thumb-btn"><i class="iconfont">&#xe602;</i> 赞</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <aside class="col-md-4 blog-aside">
+
+                <div class="aside-widget">
+                    <header>
+                        <h3>推荐阅读</h3>
+                    </header>
+                    <div class="body">
+                        {% if recommendation_list %}
+                            <ul class="clean-list">
+                                {% for recommendation in recommendation_list %}
+                                    <li><a href="/article/{{ recommendation.id }}">{{ recommendation.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>当前没有推荐阅读</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="widewrapper copyright">
+        Supported by Ding Yepeng
+    </div>
+</footer>
+
+<script src="{% static 'js/common/jquery.min.js' %}"></script>
+<script src="{% static 'js/common/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/common/modernizr.js' %}"></script>
+<script src="{% static 'js/thumb.js' %}"></script>
+
+</body>
+</html>
