@@ -76,10 +76,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ybw_rs_db',
-        'USER': 'dyp',
-        'PASSWORD': 'rootdyp',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
