@@ -32,7 +32,6 @@
         <div class="container">
             <div class="clean-breadcrumb">
                 <a href="/">文章</a>
-                <span class="separator">&#x2F;</span>
                 <a href="/article/{{ article.id }}">{{ article.title }}</a>
             </div>
 
@@ -64,9 +63,11 @@
                                     <span class="meta">{{ article.author }}&nbsp&nbsp{{ article.date }}</span>
                                     <hr>
                                 </header>
-                                <div class="body ellipsis-content">
-                                    {{ article.content }}
-                                </div>
+                                {% autoescape off %}
+                                    <div class="body ellipsis-content">
+                                        {{ article.content }}
+                                    </div>
+                                {% endautoescape %}
                                 <div class="clearfix">
                                     <a href="/article/{{ article.id }}" class="btn btn-clean-one">展开</a>
                                 </div>

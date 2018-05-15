@@ -14,7 +14,7 @@ def index(request):
     random_ids = set(np.random.randint(1, 41, size=10))
     article_list = []
     for id in random_ids:
-        article_list.append(decode_article(Article.objects.get(pk=id)))
+        article_list.append(decode_article(Article.objects.get(pk=id), True))
     context = {'article_list': article_list, 'recommendation_list': get_recommendation_list()}
     return render(request, 'view/index.html', context)
 

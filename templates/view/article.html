@@ -62,7 +62,9 @@
                                 class="fa fa-comments"></i><span class="data"><a
                                 href="#comments">{{ article.comment_num }} 评论</a></span>
                         </div>
-                        <p>{{ article.content }}</p>
+                        {% autoescape off %}
+                            <p>{{ article.content }}</p>
+                        {% endautoescape %}
                     </div>
                 </article>
 
